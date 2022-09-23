@@ -8,12 +8,33 @@
     <body>
         <script>
             function getComputerChoice(){
-                const choice = ['Rock', 'Paper', 'Scissors'];
-                return console.log(choice[Math.floor(Math.random()*choice.length)]);
+                const choice = ['rock', 'paper', 'scissors'];
+                return choice[Math.floor(Math.random()*choice.length)];
             }
-            function showGameScore(playerSelection, computerSelection){
-                let playerChoice = prompt('please type rock, paper, or scissor')
+
+            function getPlayerChoice(){
+                const choice = prompt('please enter "rock", "paper", or "scissors"').toLowerCase();;
+                return choice;
+
             }
+
+            function playRound(playerSelection, computerSelection){
+                const playerChoice = playerSelection;
+                if (playerChoice==='rock' && computerSelection==='paper'){
+                    const winner = "You Lose! Paper beats Rock";
+                    return winner;
+                }
+            }
+
+            function game(){
+                for (i=1; i<=5; i++){
+                    playRound();
+                }
+            }
+            const playerSelection = getPlayerChoice();
+            const computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection,computerSelection));
+
         </script>
     </body>
 </html>
