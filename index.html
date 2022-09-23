@@ -24,16 +24,15 @@
                 
                 while (playerSelection===computerSelection){
                     alert("Its a tie! Throw hands again");
+                    console.log(computerSelection = getComputerChoice()); 
                     playerSelection = getPlayerChoice();
-                    computerSelection = getComputerChoice(); 
                 }
 
                 if (playerSelection==='rock'){
-                        if (computerSelection === 'scissors'){
-                        const winner = "You Win! Rock beats Scissors";
-                        return winner;
+                    if (computerSelection === 'scissors'){
+                        return "You win! Rock beats Scissors";
                     }
-                    else return "You Lose! Paper beats Rock";
+                    else return "You lose! Paper beats Rock";
                 }
                 if (playerSelection==='paper'){
                     if (computerSelection === 'rock'){
@@ -52,12 +51,27 @@
 
 
             function game(){
-                for (i=1; i<=5; i++){
+                let count = 0;
+                let rounds = 5;
+                let finalScore = "";
+                let roundScore = "";
+                for (i=1; i<=rounds; i++){
                     alert(`round ${i}`)
                     const playerSelection = getPlayerChoice();
                     const computerSelection = getComputerChoice();
-                    console.log(playRound(playerSelection, computerSelection));
+                    roundScore=playRound(playerSelection, computerSelection);
+                    console.log(roundScore);
+                    if (roundScore.slice(0,8)==="You win!"){
+                        count++;
+                    }
+                    console.log(count);
                 }
+                if (count>Math.floor(rounds/2)){
+                    finalScore = "Winner";
+                }
+                else finalScore = "Loser";
+                
+                console.log(`The score is ${count}/${rounds}. You are a ${finalScore}!`)
             }
 
             game();
