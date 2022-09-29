@@ -38,6 +38,10 @@ a {
 	justify-content: space-evenly;
 }
 
+button:hover {
+	background-color: #4a4f57;
+}
+
 button {
 	background-color: green;
 	color: white;
